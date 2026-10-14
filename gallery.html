@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gallery - Coding Academy</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Header & Navigasi -->
+    <header>
+      <div class="container navbar">
+        <h1>Coding Academy</h1>
+        <nav>
+          <a href="gallery.html" class="active">Gallery</a>
+          <a href="pendaftaran.html">Pendaftaran</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Konten Utama Gallery -->
+    <main class="container">
+      <section class="page-title">
+        <h2>Gallery Kegiatan Pelatihan</h2>
+        <p>Klik pada salah satu kartu kegiatan pelatihan untuk langsung menuju halaman pendaftaran.</p>
+      </section>
+
+      <!-- 6 Item Gallery Pelatihan -->
+      <div class="gallery-grid">
+        <div class="gallery-card" onclick="pindahPendaftaran('Web Development Dasar')">
+          <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=600&q=80" alt="Web Dev Dasar" />
+          <div class="gallery-info">
+            <h3>Web Development Dasar</h3>
+            <p>Belajar HTML, CSS, dan struktur layout web modern.</p>
+          </div>
+        </div>
+
+        <div class="gallery-card" onclick="pindahPendaftaran('JavaScript & Frontend')">
+          <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=600&q=80" alt="JavaScript" />
+          <div class="gallery-info">
+            <h3>JavaScript & Frontend</h3>
+            <p>Membuat website menjadi dinamis dan interaktif.</p>
+          </div>
+        </div>
+
+        <div class="gallery-card" onclick="pindahPendaftaran('Fullstack PHP & MySQL')">
+          <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80" alt="PHP MySQL" />
+          <div class="gallery-info">
+            <h3>Fullstack PHP & MySQL</h3>
+            <p>Membangun aplikasi web berbasis database sisi server.</p>
+          </div>
+        </div>
+
+        <div class="gallery-card" onclick="pindahPendaftaran('Python untuk Pemula')">
+          <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80" alt="Python" />
+          <div class="gallery-info">
+            <h3>Python untuk Pemula</h3>
+            <p>Dasar pemrograman Python dan logika komputasi.</p>
+          </div>
+        </div>
+
+        <div class="gallery-card" onclick="pindahPendaftaran('UI/UX Design & Prototyping')">
+          <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&w=600&q=80" alt="UI UX Design" />
+          <div class="gallery-info">
+            <h3>UI/UX Design & Prototyping</h3>
+            <p>Merancang tampilan aplikasi yang menarik dan ramah pengguna.</p>
+          </div>
+        </div>
+
+        <div class="gallery-card" onclick="pindahPendaftaran('Git & GitHub Collaboration')">
+          <img src="https://images.unsplash.com/photo-1556075798-4825dfaaf498?auto=format&fit=crop&w=600&q=80" alt="Git GitHub" />
+          <div class="gallery-info">
+            <h3>Git & GitHub Collaboration</h3>
+            <p>Mengelola versi kode program dan kerja tim secara profesional.</p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2026 Coding Academy. Harya Rachmat Suzana.</p>
+    </footer>
+
+    <!-- Script untuk langsung mengarahkan ke form pendaftaran -->
+    <script>
+      function pindahPendaftaran(namaProgram) {
+        window.location.href = `pendaftaran.html?program=${encodeURIComponent(namaProgram)}`;
+      }
+    </script>
+  </body>
+</html>

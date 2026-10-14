@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pendaftaran - Coding Academy</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Header & Navigasi -->
+    <header>
+      <div class="container navbar">
+        <h1>Coding Academy</h1>
+        <nav>
+          <a href="gallery.html">Gallery</a>
+          <a href="pendaftaran.html" class="active">Pendaftaran</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Konten Utama Pendaftaran -->
+    <main class="container">
+      <section class="page-title">
+        <h2>Formulir Pendaftaran Peserta</h2>
+        <p>Silakan isi data diri Anda dengan lengkap dan benar untuk bergabung dalam program pelatihan.</p>
+      </section>
+
+      <div class="form-wrapper">
+        <form id="formPendaftaran" onsubmit="handleKonfirmasi(event)">
+          <div class="form-group">
+            <label for="nik">NIK:</label>
+            <input type="text" id="nik" name="nik" required placeholder="Masukkan 16 digit NIK" />
+          </div>
+
+          <div class="form-group">
+            <label for="nama">Nama Lengkap:</label>
+            <input type="text" id="nama" name="nama" required placeholder="Masukkan nama lengkap" />
+          </div>
+
+          <div class="form-group">
+            <label>Jenis Kelamin:</label>
+            <div class="radio-group">
+              <label><input type="radio" name="gender" value="Laki-laki" required /> Laki-laki</label>
+              <label><input type="radio" name="gender" value="Perempuan" required /> Perempuan</label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="nohp">No HP:</label>
+            <input type="tel" id="nohp" name="nohp" required placeholder="Contoh: 081234567890" />
+          </div>
+
+          <div class="form-group">
+            <label for="alamat">Alamat:</label>
+            <textarea id="alamat" name="alamat" rows="3" required placeholder="Masukkan alamat lengkap"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="bahasa">Bahasa Pemrograman yang Diminati:</label>
+            <select id="bahasa" name="bahasa" required>
+              <option value="">-- Pilih Bahasa Pemrograman --</option>
+              <option value="HTML & CSS">HTML & CSS</option>
+              <option value="JavaScript">JavaScript</option>
+              <option value="PHP">PHP & MySQL</option>
+              <option value="Python">Python</option>
+              <option value="Java">Java</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn-submit">Daftar Sekarang</button>
+        </form>
+      </div>
+
+      <!-- Area Tampilan Hasil Pendaftaran (Muncul setelah konfirmasi "Ya") -->
+      <div id="hasilPendaftaran" class="result-box hidden">
+        <h3>Hasil Pendaftaran Berhasil Disimpan</h3>
+        <table>
+          <tr>
+            <td><strong>NIK</strong></td>
+            <td>: <span id="resNik"></span></td>
+          </tr>
+          <tr>
+            <td><strong>Nama Lengkap</strong></td>
+            <td>: <span id="resNama"></span></td>
+          </tr>
+          <tr>
+            <td><strong>Jenis Kelamin</strong></td>
+            <td>: <span id="resGender"></span></td>
+          </tr>
+          <tr>
+            <td><strong>No HP</strong></td>
+            <td>: <span id="resNohp"></span></td>
+          </tr>
+          <tr>
+            <td><strong>Alamat</strong></td>
+            <td>: <span id="resAlamat"></span></td>
+          </tr>
+          <tr>
+            <td><strong>Bahasa Pemrograman</strong></td>
+            <td>: <span id="resBahasa"></span></td>
+          </tr>
+        </table>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2026 Coding Academy. Harya Rachmat Suzana.</p>
+    </footer>
+
+    <script>
+      function handleKonfirmasi(event) {
+        event.preventDefault();
+        let konfirmasi = confirm("Apakah Anda sudah yakin untuk menyimpan?");
+
+        if (konfirmasi) {
+          const nik = document.getElementById("nik").value;
+          const nama = document.getElementById("nama").value;
+          const gender = document.querySelector('input[name="gender"]:checked').value;
+          const nohp = document.getElementById("nohp").value;
+          const alamat = document.getElementById("alamat").value;
+          const bahasa = document.getElementById("bahasa").value;
+
+          document.getElementById("resNik").innerText = nik;
+          document.getElementById("resNama").innerText = nama;
+          document.getElementById("resGender").innerText = gender;
+          document.getElementById("resNohp").innerText = nohp;
+          document.getElementById("resAlamat").innerText = alamat;
+          document.getElementById("resBahasa").innerText = bahasa;
+
+          const hasilBox = document.getElementById("hasilPendaftaran");
+          hasilBox.classList.remove("hidden");
+          hasilBox.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+    </script>
+  </body>
+</html>
